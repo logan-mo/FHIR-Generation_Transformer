@@ -153,6 +153,7 @@ cython_debug/
 
 
 # Data 
+data/
 fhir-chunk-1.csv
 
 # Specific files

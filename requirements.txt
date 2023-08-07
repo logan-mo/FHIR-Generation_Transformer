@@ -2,3 +2,5 @@ torch
 torchtext
 gdown
 numpy
+pandas
+glob2
