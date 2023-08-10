@@ -4,3 +4,7 @@ gdown
 numpy
 pandas
 glob2
+transformers
+accelerate
+SentencePiece
+datasets
