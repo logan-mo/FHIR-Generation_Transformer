@@ -8,3 +8,5 @@ transformers
 accelerate
 SentencePiece
 datasets
+joblib
+portalocker

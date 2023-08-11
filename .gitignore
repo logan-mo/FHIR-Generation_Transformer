@@ -158,3 +158,5 @@ fhir-chunk-1.csv
 
 # Specific files
 creds.txt
+*.pt
+*.joblib
