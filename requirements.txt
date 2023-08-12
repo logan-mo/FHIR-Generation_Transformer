@@ -10,3 +10,4 @@ SentencePiece
 datasets
 joblib
 portalocker
+fairseq
