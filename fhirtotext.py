@@ -166,7 +166,7 @@ with open('data/fhir_to_text.csv', 'w', encoding='utf-8', newline='') as out_fil
     for filename in os.listdir(directory):
 
         # Only process .ndjson files
-        if filename.startswith('Allergy'):
+        if '.ndjson' in filename:
 
             # Open the ndjson file
             with open(os.path.join(directory, filename), 'r', encoding='utf-8') as in_file:
@@ -193,15 +193,15 @@ with open('data/fhir_to_text.csv', 'w', encoding='utf-8', newline='') as out_fil
                     #print(f"NLP Labels: {nlp_labels}")
                     #print(f"References: {references}")
                     # Perform feature engineering on the string
-                    if features_df == None:
+                    if features_df is None:
                         features_df = feature_engineering(string)
                     else:
                         features_df = pd.concat([features_df, feature_engineering(string)], axis=0)
                     # Print the extracted features
                     #print(features_df)
-                    print('writing features for' + resource_type + ':' + resource_id +'\n')
+                    #print('writing features for' + resource_type + ':' + resource_id +'\n')
                     writer.writerow([resource_type, resource_data])
-                features_df.to_csv('output/csv/features.csv')
+                features_df.to_csv('features.csv')
 
 
 
