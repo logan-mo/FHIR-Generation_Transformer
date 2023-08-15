@@ -189,7 +189,7 @@ with open('data/fhir_to_text.csv', 'w', encoding='utf-8', newline='') as out_fil
                     #print(f"NLP Labels: {nlp_labels}")
                     #print(f"References: {references}")
                     # Perform feature engineering on the string
-                    if features_df == None:
+                    if features_df is None:
                         features_df = feature_engineering(string)
                     else:
                         features_df = pd.concat([features_df, feature_engineering(string)], axis=0)
