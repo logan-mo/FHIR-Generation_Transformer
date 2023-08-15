@@ -155,8 +155,11 @@ cython_debug/
 # Data 
 #data/*.csv
 fhir-chunk-1.csv
+Procedure.ndjson
 
 # Specific files
 creds.txt
 *.pt
 *.joblib
+
+scripts/*.zip
