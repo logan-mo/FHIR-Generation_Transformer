@@ -1,14 +1,12 @@
-import json
-import os
-import csv
-import re
-
-import re
-import pandas as pd
-from sklearn.calibration import LabelEncoder
 from sklearn.preprocessing import MinMaxScaler, OneHotEncoder
-import spacy
+from sklearn.calibration import LabelEncoder
 from datetime import datetime
+import pandas as pd
+import spacy
+import json
+import csv
+import os
+import re
 
 # Load the spaCy English model
 nlp = spacy.load("en_core_web_sm")
@@ -110,8 +108,6 @@ def dict_to_string(d, parent_key=''):
 # Define the directory
 directory = 'data'
 
-import re
-
 def extract_references(string):
     references = re.findall(r'\[reference\]\s(.*?)\s', string)
     return references
@@ -172,7 +168,7 @@ with open('data/fhir_to_text.csv', 'w', encoding='utf-8', newline='') as out_fil
             with open(os.path.join(directory, filename), 'r', encoding='utf-8') as in_file:
                 features_df = None
                 # Process each line in the file
-                for line in in_file:
+                for i,line in enumerate(in_file):
                     resource = json.loads(line)
                     resource_type = resource.get("resourceType", "Unknown")
                     resource_data = dict_to_string(resource)
@@ -193,15 +189,15 @@ with open('data/fhir_to_text.csv', 'w', encoding='utf-8', newline='') as out_fil
                     #print(f"NLP Labels: {nlp_labels}")
                     #print(f"References: {references}")
                     # Perform feature engineering on the string
-                    if features_df is None:
+                    if features_df == None:
                         features_df = feature_engineering(string)
                     else:
                         features_df = pd.concat([features_df, feature_engineering(string)], axis=0)
                     # Print the extracted features
                     #print(features_df)
-                    #print('writing features for' + resource_type + ':' + resource_id +'\n')
+                    print('writing features for' + resource_type + ':' + resource_id +'\n')
                     writer.writerow([resource_type, resource_data])
-                features_df.to_csv('features.csv')
+                features_df.to_csv('output/csv/features.csv')
 
 
 

@@ -1,10 +1,5 @@
 import json
 import re
-import re
-
-import re
-
-import re
 
 def string_to_dict(s):
     split_list = re.findall('\[.*?\]\s[^\[]*|\[.*?\]\s|\s', s)

@@ -1,5 +1,6 @@
-import json
 from jsonschema import validate, ValidationError
+import json
+
 def validate_fhir_resource_with_schema_loading(resource, schema_path="/mnt/data/fhir.schema.json"):
 
     # Load the FHIR schema
