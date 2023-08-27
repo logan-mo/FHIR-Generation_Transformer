@@ -4,7 +4,7 @@ gdown
 numpy
 pandas
 glob2
-transformers=4.31
+transformers==4.31
 accelerate
 SentencePiece
 datasets
