@@ -163,3 +163,4 @@ creds.txt
 *.joblib
 
 scripts/*.zip
+saved_models/
